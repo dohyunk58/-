@@ -6,6 +6,9 @@
 /venv
 /venv311
 
+# 환경변수
+.env
+
 ### macOS ###
 # General
 .DS_Store
