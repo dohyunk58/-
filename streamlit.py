@@ -4,7 +4,17 @@ import requests
 # st.chat_message : 모델 답은 ai로, 사용자 답은 user로 이모지 표현
 # 추가할 것: streamlit의 prompt를 전달하고, 주피터 노트북의 response를 가져옴
 
+# 로고 주소, http로 불러와야 함
+logo_name = "resources/logo/logo_name.png"
+logo_wide = "resources/logo/logo_wide.png"
+logo = "resources/logo/logo.png"
+
 def page():
+    # 페이지 제목, 가장 먼저 실행되어야함(중요)
+    st.set_page_config(
+        page_title="해물해물 - 해상물류 법률 챗봇"
+    )
+
     # 제목 설정
     st.header("해물해물 - 해상물류 법률 챗봇", anchor=False, divider="blue")
 
@@ -15,16 +25,18 @@ def page():
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
+    
+
     # 로고 설정
     st.logo(
-        "resources/logo_wide.png", # 로고 이미지
+        logo_name, # 로고 이미지
         link="http://localhost:8502", # 링크 url
         icon_image=None # 대체 이미지
     )   
 
 # 첫 채팅시 매크로 문구
 def hello():
-    with st.chat_message("ai"):
+    with st.chat_message("ai", avatar=logo):
             st.write('''안녕하세요! 👋
                      저는 해상물류 법률을 잘 아는 챗봇 해물해물이에요!
                      궁금한 점이 있다면 무엇이든 물어보세요!
@@ -32,7 +44,7 @@ def hello():
 
 # 챗봇의 응답을 출력합니다
 def printAi(response):
-    with st.chat_message("ai"):
+    with st.chat_message("ai", avatar=logo):
         st.write(response)
         st.session_state.chat_history.append({"role": "ai", "message": response})
 
