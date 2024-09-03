@@ -8,11 +8,13 @@ import requests
 logo_name = "resources/logo/logo_name.png"
 logo_wide = "resources/logo/logo_wide.png"
 logo = "resources/logo/logo.png"
+logo_white = "resources/logo/logo_white.png"
 
 def page():
     # 페이지 제목, 가장 먼저 실행되어야함(중요)
     st.set_page_config(
-        page_title="해물해물 - 해상물류 법률 챗봇"
+        page_title="해물해물 - 해상물류 법률 챗봇",
+        page_icon=logo_white
     )
 
     # 제목 설정
